@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Recetas</title>
+    </head>
+
+    <body>
+        <div id="raiz"></div>
+        
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        
+        <script>
+            const root = ReactDOM.createRoot(document.getElementById('raiz'));    
+            const todoList = [];
+            const todoList_receta = [];
+            const ingredientes = [];
+
+            const submit=()=>{
+
+                event.preventDefault();
+
+                todoList.push(
+                    React.createElement('li', {
+                                                key: event.target.todo.value
+                                            }, 
+                                        event.target.todo.value)
+                    )
+                
+                const ul = React.createElement('ul', null, todoList);
+
+
+                ingredientes.push( event.target.todo.value);
+
+                event.target.todo.value='';
+                event.target.todo.focus();
+
+                root.render([form_receta, form_ingredientes, ul]);
+
+            }
+
+            const submit_receta=()=>{
+
+                event.preventDefault();
+
+                let valores = "";
+
+
+                for (const element of ingredientes) {
+                    valores += element  + ",";
+                }
+           
+                let mensaje = "Receta: " +  event.target.receta.value + ", Ingredientes: " + valores + " Tiempo:" +  event.target.tiempo.value 
+
+                todoList.push(
+                    React.createElement('li', {
+                                                key: event.target.receta.value + "_" +  event.target.tiempo.value
+                                            }, 
+                                            mensaje)
+                    )
+
+
+                const ul_ = React.createElement('h1', null, todoList);
+
+
+
+                root.render([form_receta, form_ingredientes, ul_]);
+
+            }
+
+
+          
+
+            const form_receta = React.createElement('form', {onSubmit: submit_receta}, [
+                
+                React.createElement('label', null, "Receta: "),
+                React.createElement('input', {type: 'text', name:'receta'}),
+                React.createElement('label', null, "Tiempo: "),
+                React.createElement('input', {type: 'text', name:'tiempo'}),
+                React.createElement('button', {type: 'submit'}, 'Agregar receta')
+            ])
+
+
+            const form_ingredientes = React.createElement('form', {onSubmit: submit}, [
+                
+                React.createElement('label', null, "Ingrediente: "),
+                React.createElement('input', {type: 'text', name:'todo'}),
+                React.createElement('button', {type: 'submit'}, 'Agregar ingrediente')
+            ])
+
+
+
+            root.render([form_receta, form_ingredientes]);
+          
+
+        </script>
+    </body>
+</html>
