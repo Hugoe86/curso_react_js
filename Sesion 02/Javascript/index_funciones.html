@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript 01</title>
+</head>
+
+<body>
+    <div id="raiz"></div>
+
+
+    <script type="text/javascript">
+
+        hey('Hugo');
+
+        function hey(name = "Enrique") {
+            alert(`hey ${name}`);
+        }
+
+
+        const hey2 = function hey(name = "Enrique") {
+            alert(`hey ${name}`);
+        }
+
+        hey2();
+
+
+        //  nueva forma de declarar una función
+        //  01 nombre de la constante
+        //  02 nombre de las varables
+        //  03  accion realizada    
+        const lordify = firstName => `${firstName} of Canterbury`;
+
+        const hey3 = name => alert(`hey ${name}`);
+
+        hey3("Hugo Enrique");
+
+
+
+        const tahoe = {
+            mountains: ["Freel", "Rose", "Tallac", "Rubicon", "Silver"],
+            print: function (delay = 100) {
+                setTimeout(() => {
+                    console.log(this.mountains.join(","));
+                }, delay);
+            }
+        };
+
+
+        tahoe.print();
+
+    </script>
+</body>
+
+</html>

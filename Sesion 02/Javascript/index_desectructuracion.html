@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript 01</title>
+</head>
+
+<body>
+    <div id="raiz"></div>
+
+
+    <script type="text/javascript">
+
+
+
+        const tahoe = {
+            mountains: ["Freel", "Rose", "Tallac", "Rubicon", "Silver"],
+            print: function (delay = 100) {
+                setTimeout(() => {
+                    console.log(this.mountains.join(","));
+                }, delay);
+            }
+        };
+
+
+        const { mountains: m } = tahoe;
+
+        console.log(m)
+
+    </script>
+</body>
+
+</html>
