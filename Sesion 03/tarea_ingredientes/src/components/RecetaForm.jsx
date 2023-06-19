@@ -24,16 +24,36 @@ const RecetaForm = ({ onSubmit }) => {
     <form onSubmit={submit}>
       <tr>
         <td>
-          <label>Receta</label>
-          <input type="text" placeholder="Receta" />
+          <label for="txt_receta_">Receta</label>
+          <input
+            id="txt_receta_"
+            type="text"
+            placeholder="Receta"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
         </td>
+      </tr>
+      <br />
+      <tr>
         <td>
           <label>Tiempo</label>
-          <input type="text" placeholder="Tiempo" />
+          <input
+            type="text"
+            placeholder="Tiempo"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
         </td>
+      </tr>
+      <br />
 
+      <tr>
         <td>
-          <button type="submit">+ Agregar receta</button>
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            + Agregar receta
+          </button>
         </td>
       </tr>
     </form>

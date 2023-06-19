@@ -18,7 +18,7 @@ const RecetaLista = () => {
 
   return (
     <>
-      <h1> Mi lista de recetas son  ({recetaCount} Recetas )</h1>
+      
       <RecetaForm onSubmit={addReceta} />
       <ul className="flex 5 py-5">
         {recetas.map((receta) => (

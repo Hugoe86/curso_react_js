@@ -4,22 +4,15 @@ const IngredienteItem = ({ ingrediente }) => {
 
   //    se regresan los componentes
   return (
-    <div className={`p-6 rounded-xl bg-amber-50 `}>
-      <tr>
-        <td>
-          {/* Nombre de la receta */}
-          <span class="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
-            Ingrediente:
-          </span>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <li>{nombre_ingrediente}</li>
-        </td>
-      </tr>
-    </div>
+    <table class="table-fixed">
+      <tbody>
+        <tr>
+          <td>
+            <li>{nombre_ingrediente}</li>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 };
 
