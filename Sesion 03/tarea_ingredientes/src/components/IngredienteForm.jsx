@@ -1,4 +1,6 @@
+//  funcion principal del archivo
 const IngredienteForm = ({ onSubmit }) => {
+  //  funcion del submit
   const submit = (event) => {
     event.preventDefault();
 
@@ -11,7 +13,6 @@ const IngredienteForm = ({ onSubmit }) => {
     //    se crea arreglo de recetas
     const ingrediente = { nombre_ingrediente };
 
-  
     //    se ejecuta el evento Submit
     onSubmit(ingrediente);
 
@@ -19,6 +20,7 @@ const IngredienteForm = ({ onSubmit }) => {
     form.reset();
   };
 
+  //  regresa la esctructura del formulario de ingredientes
   return (
     <div>
       <form onSubmit={submit}>
@@ -48,4 +50,5 @@ const IngredienteForm = ({ onSubmit }) => {
   );
 };
 
+//  sección para exportar
 export default IngredienteForm;

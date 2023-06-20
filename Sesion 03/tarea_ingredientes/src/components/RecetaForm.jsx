@@ -1,4 +1,6 @@
+//  funcion principal del archivo
 const RecetaForm = ({ onSubmit }) => {
+  //  evento submit
   const submit = (event) => {
     event.preventDefault();
 
@@ -8,11 +10,11 @@ const RecetaForm = ({ onSubmit }) => {
     //    se ingresan los valores del formulario
     const nombre_receta = form[0].value;
     const tiempo = form[1].value;
-    //const ingredientes = form[2].value;
 
     //  obtenemos los valores del localStorage [ingredientes]
     let data = localStorage.getItem("ingredientes");
 
+    //  regresa la estructura de data
     console.log(data);
 
     //  se convirte el arreglo
@@ -24,11 +26,10 @@ const RecetaForm = ({ onSubmit }) => {
 
     //  recorremos el arreglo de ingredientes
     for (contador = 0; contador < ingredientes_valores.length; contador++) {
-
+      
       //  agregamos el nombre del ingrediente a la variable
       ingredientes +=
         "[" + ingredientes_valores[contador].nombre_ingrediente + "] ";
-        
     }
 
     //    se crea arreglo de recetas
@@ -36,6 +37,8 @@ const RecetaForm = ({ onSubmit }) => {
 
     //  se inicializa el localStore
     localStorage.setItem("ingredientes", []);
+    localStorage.setItem("banera_receta", 1);
+
     //    se ejecuta el evento Submit
     onSubmit(receta);
 
@@ -43,7 +46,9 @@ const RecetaForm = ({ onSubmit }) => {
     form.reset();
   };
 
+  //  regresa la estructura del formulario
   return (
+    // evento onsubmit
     <form onSubmit={submit}>
       <tr>
         <td>
@@ -82,4 +87,5 @@ const RecetaForm = ({ onSubmit }) => {
   );
 };
 
+//  sección para exportar
 export default RecetaForm;

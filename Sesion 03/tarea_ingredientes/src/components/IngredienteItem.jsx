@@ -1,3 +1,4 @@
+//  funcion principal del archivo
 const IngredienteItem = ({ ingrediente }) => {
   //  arreglo para descomponer la receta
   const { nombre_ingrediente } = ingrediente;
@@ -16,4 +17,5 @@ const IngredienteItem = ({ ingrediente }) => {
   );
 };
 
+//  sección para exportar
 export default IngredienteItem;
