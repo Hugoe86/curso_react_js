@@ -4,6 +4,10 @@ const RecetaForm = ({ onSubmit }) => {
   const submit = (event) => {
     event.preventDefault();
 
+    //  inicializamos variables
+    let ingredientes = "";
+    let contador = 0;
+
     //    se toman los valores del formulario
     const form = event.target;
 
@@ -17,19 +21,21 @@ const RecetaForm = ({ onSubmit }) => {
     //  regresa la estructura de data
     console.log(data);
 
-    //  se convirte el arreglo
-    const ingredientes_valores = JSON.parse(data);
+    //  validamos si tiene información
+    if (data == "") {
+      console.log("Error");
+    }
+    //  si tienen informacion se obtienen los ingredientes
+    else {
+      //  se convirte el arreglo
+      const ingredientes_valores = JSON.parse(data);
 
-    //  inicializamos variables
-    let ingredientes = "";
-    let contador = 0;
-
-    //  recorremos el arreglo de ingredientes
-    for (contador = 0; contador < ingredientes_valores.length; contador++) {
-      
-      //  agregamos el nombre del ingrediente a la variable
-      ingredientes +=
-        "[" + ingredientes_valores[contador].nombre_ingrediente + "] ";
+      //  recorremos el arreglo de ingredientes
+      for (contador = 0; contador < ingredientes_valores.length; contador++) {
+        //  agregamos el nombre del ingrediente a la variable
+        ingredientes +=
+          "[" + ingredientes_valores[contador].nombre_ingrediente + "] ";
+      }
     }
 
     //    se crea arreglo de recetas
@@ -63,11 +69,13 @@ const RecetaForm = ({ onSubmit }) => {
       <br />
       <tr>
         <td>
-          <label>Tiempo</label>
+          <label>Tiempo en minutos</label>
           <input
             type="text"
-            placeholder="Tiempo"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Tiempo en minutos"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+             focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+              dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </td>
       </tr>

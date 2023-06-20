@@ -9,7 +9,7 @@ const RecetaItem = ({ receta }) => {
 
   //    se regresan los componentes
   return (
-    <div className={`p-6 rounded-xl bg-purple-300 `}>
+    <div className={`p-6 rounded-xl bg-purple-200  `}>
       <tr>
         <td>
           {/* label Nombre de la receta */}
