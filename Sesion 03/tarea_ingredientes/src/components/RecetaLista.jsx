@@ -1,24 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RecetaItem from "./RecetaItem";
 import RecetaForm from "./RecetaForm";
+import IngredientesLista from "./IngredientesLista";
 
 const RecetaLista = () => {
   const [recetaCount, setRecetaCount] = useState(0);
-  const [recetas, setRecetas] = useState([
-    {
-      nombre_receta: "Pan Francés Tiramisú",
-      tiempo: "20",
-      ingredientes: [],
-    },
-  ]);
+
+  const [recetas, setRecetas] = useState([]);
+
   const addReceta = (receta) => {
     setRecetas([...recetas, receta]);
-    setRecetaCount(recetaCount + 1);
   };
+
+  useEffect(() => {
+    setRecetaCount(recetas);
+  }, [recetas]);
 
   return (
     <>
-      
       <RecetaForm onSubmit={addReceta} />
       <ul className="flex 5 py-5">
         {recetas.map((receta) => (

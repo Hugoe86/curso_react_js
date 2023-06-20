@@ -1,8 +1,12 @@
-import IngredientesLista from "./IngredientesLista"
+import { useState } from "react";
+import IngredientesLista from "./IngredientesLista";
+
+
 
 const RecetaItem = ({ receta }) => {
   //  arreglo para descomponer la receta
   const { nombre_receta, tiempo, ingredientes } = receta;
+
 
   //    se regresan los componentes
   return (
@@ -10,7 +14,7 @@ const RecetaItem = ({ receta }) => {
       <tr>
         <td>
           {/* Nombre de la receta */}
-          <span class="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
+          <span className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
             Receta:
           </span>
 
@@ -18,35 +22,34 @@ const RecetaItem = ({ receta }) => {
         </td>
       </tr>
 
-      <br/>
-      
+      <br />
+
       <tr>
-        <tfd>
+        <td>
           {/* tiempo */}
-          <span class="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
+          <span className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
             Tiempo:
           </span>
 
-          <span>&nbsp; {tiempo}  &nbsp;Min.</span>
-          
-        </tfd>
+          <span>&nbsp; {tiempo} &nbsp;Min.</span>
+        </td>
       </tr>
 
-      <br/>
+      <br />
 
       <tr>
-        <tfd>
-          {/* ingredientes */}
-          <span class="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
+        <td>
+          <span className="underline underline-offset-3 decoration-4 decoration-blue-400 dark:decoration-blue-600">
             Ingredientes:
           </span>
 
-          {/* <div>&nbsp;  <IngredientesLista /> </div> */}
-          
-        </tfd>
-      </tr>
+          <span>&nbsp; {ingredientes}</span>
 
-      
+
+
+
+        </td>
+      </tr>
     </div>
   );
 };

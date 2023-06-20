@@ -4,7 +4,7 @@ const IngredienteItem = ({ ingrediente }) => {
 
   //    se regresan los componentes
   return (
-    <table class="table-fixed">
+    <table className="table-fixed">
       <tbody>
         <tr>
           <td>

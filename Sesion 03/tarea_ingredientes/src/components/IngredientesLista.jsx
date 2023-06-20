@@ -1,35 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import IngredienteItem from "./IngredienteItem";
 import IngredienteForm from "./IngredienteForm";
 
 const IngredientesLista = () => {
   const [CountIngrediente, setIngredienteCount] = useState(0);
 
-  const [ingredientes, setIngrediente] = useState([
-    {
-      nombre_ingrediente: "3/4 De taza de Leche Evaporada CARNATION",
-    },
-    {
-      nombre_ingrediente: "3 Cucharadas de Cocoa NESTLÉ® Chocolatería",
-    },
-    // {
-    //   nombre_ingrediente: "1 Cucharada de NESCAFÉ CLÁSICO",
-    // },
-    // {
-    //   nombre_ingrediente: "1 Huevo",
-    // },
-    // {
-    //   nombre_ingrediente: "1 Cucharada de esencia de vainilla",
-    // },
-    // {
-    //   nombre_ingrediente: " 1/2 Barra de mantequilla (45 g)",
-    // },
-  ]);
+  const [IngredienteValores, setIngredienteValores] = useState(0);
+
+  let arreglo_ingredientes = [];
+
+  const [ingredientes, setIngrediente] = useState([ ]);
 
   const addIngrediente = (ingrediente) => {
     setIngrediente([...ingredientes, ingrediente]);
-    setIngredienteCount(CountIngrediente + 1);
   };
+
+
+  useEffect(() => {
+    //  obtenemos los valores del localStorage [ingredientes]
+    let data = localStorage.getItem('ingredientes');
+
+    // //  validamos si tiene información data
+    // if(data){
+    //   setIngrediente = JSON.parse(data);
+    // }
+
+  }, [ ] )
+
+  useEffect(() => {
+    
+    //arreglo_ingredientes = [...ingredientes];
+
+    //  agregamos los valores al localStorage [ingredientes]
+    localStorage.setItem('ingredientes', JSON.stringify(ingredientes));
+  
+
+    //console.log(arreglo_ingredientes);
+
+  }, [ingredientes]);
 
   return (
     <>
