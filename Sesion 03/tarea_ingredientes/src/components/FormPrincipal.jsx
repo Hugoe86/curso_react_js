@@ -7,12 +7,14 @@ const FormPrincipal = () => {
   //    se regresa la estructura del formulario
   return (
     <>
-      <div>
-        <hr />
-        <IngredientesLista />
-        <hr></hr>
-        <RecetaLista />
-        <hr />
+      <div className="bg-gray-600 bg-opacity-50 flex items-center justify-center h-screen">
+        <div class="">
+          <IngredientesLista />
+        </div>
+
+        <div class="">
+          <RecetaLista />
+        </div>
       </div>
     </>
   );

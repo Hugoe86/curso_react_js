@@ -7,9 +7,11 @@ const RecetaItem = ({ receta }) => {
   //  arreglo para descomponer la receta
   const { nombre_receta, tiempo, ingredientes } = receta;
 
+
+
   //    se regresan los componentes
   return (
-    <div className={`p-6 rounded-xl bg-purple-200  `}>
+    <div className={`p-6 rounded-xl bg-amber-200  `}>
       <tr>
         <td>
           {/* label Nombre de la receta */}

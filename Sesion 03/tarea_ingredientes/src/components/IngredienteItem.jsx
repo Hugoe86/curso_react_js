@@ -5,15 +5,17 @@ const IngredienteItem = ({ ingrediente }) => {
 
   //    se regresan los componentes
   return (
-    <table className="table-fixed">
-      <tbody>
-        <tr>
-          <td>
-            <li>{nombre_ingrediente}</li>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div className={`p-6 rounded-xl bg-white bg-opacity-30`}>
+      <table className="table-fixed">
+        <tbody>
+          <tr>
+            <td>
+              <li>{nombre_ingrediente}</li>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
