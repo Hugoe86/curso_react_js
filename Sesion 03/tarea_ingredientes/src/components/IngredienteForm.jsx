@@ -26,6 +26,7 @@ const IngredienteForm = ({ onSubmit }) => {
       <form onSubmit={submit}>
         <tr>
           <td>
+            {/* sección ingredientes  --------------------------------------------------------------------------------------------------------------------------------- */}
             <label>Ingrediente:&nbsp;&nbsp;</label>
 
             <input
@@ -37,6 +38,7 @@ const IngredienteForm = ({ onSubmit }) => {
         </tr>
         <tr>
           <td>
+            {/* sección botón  --------------------------------------------------------------------------------------------------------------------------------- */}
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

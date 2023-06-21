@@ -5,9 +5,6 @@ import IngredienteForm from "./IngredienteForm";
 
 //  funcion principal del archivo
 const IngredientesLista = () => {
-  //  variable para el estado useState
-  const [CountIngrediente, setIngredienteCount] = useState(0);
-
   //  variable para los ingredientes
   const [ingredientes, setIngrediente] = useState([]);
 
@@ -21,10 +18,14 @@ const IngredientesLista = () => {
     //  obtenemos los valores del localStorage [ingredientes]
     let data = localStorage.getItem("ingredientes");
 
-    // //  validamos si tiene información data
-    // if(data){
-    //   setIngrediente = JSON.parse(data);
-    // }
+    //  validamos si tiene información data
+    if (data) {
+      //  enviamos los valores que tiene la variable
+      console.log(JSON.parse(data));
+
+      //  cargamos los datos
+      setIngrediente(JSON.parse(data));
+    }
   }, []);
 
   //  evento useEffect, para ingredientes
@@ -33,8 +34,7 @@ const IngredientesLista = () => {
     localStorage.setItem("ingredientes", JSON.stringify(ingredientes));
   }, [ingredientes]);
 
-
-   //    se regresan los componentes
+  //    se regresan los componentes
   return (
     <>
       <IngredienteForm onSubmit={addIngrediente} />
@@ -49,4 +49,5 @@ const IngredientesLista = () => {
   );
 };
 
+//  sección para exportar
 export default IngredientesLista;

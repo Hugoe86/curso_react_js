@@ -57,6 +57,7 @@ const RecetaForm = ({ onSubmit }) => {
     // evento onsubmit
     <form onSubmit={submit}>
       <tr>
+        {/* sección receta  --------------------------------------------------------------------------------------------------------------------------------- */}
         <td>
           <label>Receta</label>
           <input
@@ -68,6 +69,7 @@ const RecetaForm = ({ onSubmit }) => {
       </tr>
       <br />
       <tr>
+        {/* sección tiempo  --------------------------------------------------------------------------------------------------------------------------------- */}
         <td>
           <label>Tiempo en minutos</label>
           <input
@@ -83,9 +85,10 @@ const RecetaForm = ({ onSubmit }) => {
 
       <tr>
         <td>
+          {/* sección botón  --------------------------------------------------------------------------------------------------------------------------------- */}
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             + Agregar receta
           </button>

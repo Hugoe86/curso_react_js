@@ -1,18 +1,10 @@
-import IngredientesLista from "./components/IngredientesLista";
-import RecetaLista from "./components/RecetaLista";
+//  sección para importar
+import FormPrincipal from "./components/FormPrincipal";
 
 function App() {
-  return (
-    <div>
-      
-      <hr></hr>
-      <IngredientesLista />
-
-      <hr></hr>
-      <RecetaLista />
-      <hr></hr>
-    </div>
-  );
+  //  se agrega el componente principal del formulario
+  return <FormPrincipal />;
 }
 
+//  sección para exportar
 export default App;
