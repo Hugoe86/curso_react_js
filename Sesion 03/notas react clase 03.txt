@@ -1,0 +1,34 @@
+estas son notas de la clase 03 de react
+
+
+
+
+--	para crear el proyecto
+npx create-react-app product-app
+
+
+
+
+np -star
+
+
+
+
+
+--son para estilos
+
+npm install -D tailwindcss
+
+npx tailwindcss init
+
+
+configruarcion del archivo  tailwindf.config.js
+
+content: ["./src/**/*.{js,jsx,ts,tsx}"],
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
