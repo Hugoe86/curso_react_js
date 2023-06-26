@@ -1,4 +1,8 @@
+
+//  función principal
 const TodoItem = ({ todo, removeTodo, updateTodo, index }) => {
+  
+  //  regresa el item de la lista, contiene los siguientes elementos (check, label, botón)
   return (
     <li className="p-4 flex gap-2 rounded-lg bg-slate-200 shadow-sm">
       <input
@@ -22,4 +26,5 @@ const TodoItem = ({ todo, removeTodo, updateTodo, index }) => {
   );
 };
 
+//  sección exportar
 export default TodoItem;

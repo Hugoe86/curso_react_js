@@ -1,4 +1,4 @@
-//  secciín import
+//  sección import
 import { useState } from "react";
 
 //  funcion principal
