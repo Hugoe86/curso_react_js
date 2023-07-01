@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAPI from "../hooks/useApi";
+import useAPI from "../hooks/useAPI";
 import ProductItem from "../components/ProductItem";
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
       <h1>FakeStore</h1>
       {loading && <p>Cargando...</p>}
       {!loading && (
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {products.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}
