@@ -15,7 +15,6 @@ const Home = () => {
     console.log(products);
 
     filtrar(e.target.value);
-    //filtrar('scandisk');
   };
 
   const filtrar = (search) => {
@@ -27,8 +26,8 @@ const Home = () => {
 
        let results = !search ? products : products.filter((dato)=> dato.title.toLowerCase().includes(search.toLocaleLowerCase()))
   
-       console.log(valores);
-       console.log(results);
+      //  console.log(valores);
+      //  console.log(results);
 
        setProducts(valores);
     } else {

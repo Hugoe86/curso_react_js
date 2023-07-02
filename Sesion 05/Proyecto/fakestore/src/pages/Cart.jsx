@@ -3,12 +3,15 @@ import { useCartContext } from "../provider/CartProvider";
 
 const Cart = () => {
   const {
-    state: { cart, totalPrice },
+    state: { cart, totalPrice, contador },
   } = useCartContext();
+
 
   return (
     <div>
       <h1>Carrito</h1>
+     
+      <span>{contador}</span>
       <div className="flex justify-between items-center">
         <div className="flex flex-col gap-4">
           {cart.map((product, index) => (

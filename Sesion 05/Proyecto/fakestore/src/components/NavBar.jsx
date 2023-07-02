@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CountCart from "../pages/CountCart";
 
 const NavBar = () => {
   return (
@@ -7,7 +8,9 @@ const NavBar = () => {
         <span>FakeStore</span>
       </Link>
       <Link to="/carrito">
-        <span>Carrito</span>
+       
+        <span>{<CountCart />}</span>
+
       </Link>
     </nav>
   );

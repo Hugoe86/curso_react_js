@@ -24,6 +24,16 @@ const reducer = (state, action) => {
           0
         ),
       };
+
+    case "COUNT_ELEMENTS":
+      return {
+        ...state,
+        contador: state.cart.reduce(
+          (prev, product) => prev + 1,
+          0
+        ),
+      };
+
     default:
       return state;
   }
@@ -41,6 +51,8 @@ const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "TOTAL_PRICE" });
+    
+    dispatch({ type: "COUNT_ELEMENTS" });
   }, [state.cart]);
 
   return (
