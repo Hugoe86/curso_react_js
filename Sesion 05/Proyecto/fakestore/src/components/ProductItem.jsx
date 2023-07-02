@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useCartContext } from "../provider/CartProvider";
 
 const ProductItem = ({ product }) => {
