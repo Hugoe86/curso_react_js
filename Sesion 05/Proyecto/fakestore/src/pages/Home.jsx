@@ -1,48 +1,60 @@
+//  sección de importación
 import { useEffect, useState } from "react";
 import useAPI from "../hooks/useAPI";
 import ProductItem from "../components/ProductItem";
 
+//  funcion principal
 const Home = () => {
+
+  //  declaracion de variables
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { getProducts } = useAPI();
   const [search, setSearch] = useState("");
 
-
+  //  metodo para filtar el producto
   const searcher = (e) => {
+  
+    //  recibe el valor del evento e
     setSearch(e.target.value);
-    //console.log(e.target.value);
-    console.log(products);
 
+    // //  revisamos que contiene la variable de productos
+    // console.log(products);
+
+    //  mandamos filtar el producto
     filtrar(e.target.value);
   };
 
+
+  //  metodo que filtra los productos
   const filtrar = (search) => {
-    //console.log(products);
-    
-    if (search) {
-
-       let valores = products.filter((product) => product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()));
-
-       let results = !search ? products : products.filter((dato)=> dato.title.toLowerCase().includes(search.toLocaleLowerCase()))
   
-      //  console.log(valores);
-      //  console.log(results);
+    //  validamos que tenga informacion de busqueda
+    if (search) {
+      
+      //  ingresamos la consulta del prducto
+      let valores = products.filter((product) =>
+        product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+      );
 
-       setProducts(valores);
-    } else {
+
+      //  cargamos el valor obtenido
+      setProducts(valores);
+    } 
+    //  si esta vacio, se recarga todos los productos
+    else {
+      
+      //  consultamos todos los productos
       getProducts()
-      .then((products) => {
-        setProducts(products);
-        setLoading(false);
-      })
-      .catch((err) => console.error(err));
+        .then((products) => {
+          setProducts(products);
+          setLoading(false);
+        })
+        .catch((err) => console.error(err));
     }
-    
-
-   
   };
 
+  //  evento para el useEffect
   useEffect(() => {
     getProducts()
       .then((products) => {
@@ -52,13 +64,16 @@ const Home = () => {
       .catch((err) => console.error(err));
   }, []);
 
-   //  metodo useEffect
-   useEffect(() => {
+  
+  //  metodo useEffect
+  useEffect(() => {
     //  asigna el valor al localStorege
     localStorage.setItem("productos", products);
+
   }, [products]);
 
-
+  
+  //  se regresa el valor
   return (
     <div className="flex-1 flex flex-col gap-4 p-4">
       <h1>FakeStore</h1>
@@ -90,4 +105,5 @@ const Home = () => {
   );
 };
 
+//  secion de export
 export default Home;
