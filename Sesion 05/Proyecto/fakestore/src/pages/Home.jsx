@@ -54,7 +54,7 @@ const Home = () => {
         setProducts(products);
         setLoading(false);
 
-        //console.log(products)
+        console.log(products)
       })
       .catch((err) => console.error(err));
   }, []);

@@ -13,11 +13,13 @@ const ProductDetail = () => {
   // se cargan los valores del localStorage
   const valores = JSON.parse(localStorage.getItem(key));
 
-  let producto_detalle_ = valores.find((product) => (product.id = productId));
+  let producto_detalle_ = valores.find((product) => (product.id == productId));
+
   let producto_rating = producto_detalle_.rating;
 
-  //console.log(`producto:  ${producto_detalle_}`);
-  console.log(producto_rating);
+//   console.log(`id:  ${productId}`);
+//   console.log(producto_detalle_);
+//   console.log(producto_rating);
 
   //  regresa la estructura de la pagina
   return (
