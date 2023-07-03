@@ -16,7 +16,6 @@ const ProductDetail = () => {
   let producto_detalle_ = valores.find((product) => (product.id = productId));
   let producto_rating = producto_detalle_.rating;
 
-
   //console.log(`producto:  ${producto_detalle_}`);
   console.log(producto_rating);
 
@@ -50,7 +49,9 @@ const ProductDetail = () => {
             <th scope="col" class="px-6 py-3">
               Category
             </th>
-           
+            <th scope="col" class="px-6 py-3">
+              Count
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -84,14 +85,12 @@ const ProductDetail = () => {
             <td class="px-6 py-4">
               <label>{producto_detalle_.category}</label>
             </td>
-
-          
-           
+            <td class="px-6 py-4">
+              <label>{producto_rating.count}</label>
+            </td>
           </tr>
         </tbody>
       </table>
-
-     
     </div>
   );
 };
