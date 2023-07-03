@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useCartContext } from "../provider/CartProvider";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import ProductDetail from "../pages/ProductDetail";
 
 const ProductItem = ({ product }) => {
+  //  seccion de variables
   const { dispatch } = useCartContext();
-
   const [showAdd, setshowAdd] = useState(false);
-
   const [product_, setProduct_] = useState(product);
 
   //  se obtiene el valor del useCartContext
@@ -13,9 +14,9 @@ const ProductItem = ({ product }) => {
     state: { cart, totalPrice, contador },
   } = useCartContext();
 
+  //  evento para validar si el producto esta en el carrito
   const validar_producto = () => {
-    
-    //console.log(product);
+    //  fitlramos el producto del carrito
     let valores = cart.filter(
       (product_filtro) => product_filtro.id == product.id
     );
@@ -28,16 +29,14 @@ const ProductItem = ({ product }) => {
     else {
       setshowAdd(false);
     }
-
-    console.log(valores.length);
-    console.log(valores);
   };
 
+  //  evento onSubmit del formulario
   const onSubmit = (event) => {
-    
+    //  se evita que el formulario se refresque
     event.preventDefault();
 
-    //console.log(product);
+    //  fitlramos el producto del carrito
     let valores = cart.filter(
       (product_filtro) => product_filtro.id == product.id
     );
@@ -50,9 +49,6 @@ const ProductItem = ({ product }) => {
     else {
       setshowAdd(false);
     }
-
-    console.log(valores.length);
-    console.log(valores);
   };
 
   //  metodo useEffect
@@ -71,6 +67,17 @@ const ProductItem = ({ product }) => {
         />
         <h2 className="font-bold">{product.title}</h2>
         <span>${product.price}</span>
+
+        <Link to={`/detalle/${product.id}/${product_}`}>
+          <span className="w-full">
+            <button
+              className="bg-white hover:bg-gray-200 text-black rounded-md p-2 mt-2"
+            >
+              Ver detalle
+              
+            </button>
+          </span>
+        </Link>
 
         {/* validamo que boton se mostrara, si es VERDADERO se mostrara el boton de agregar, si es FALSO mostrara boton de eliminar*/}
         {showAdd ? (

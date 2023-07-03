@@ -5,7 +5,6 @@ import ProductItem from "../components/ProductItem";
 
 //  funcion principal
 const Home = () => {
-
   //  declaracion de variables
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +13,6 @@ const Home = () => {
 
   //  metodo para filtar el producto
   const searcher = (e) => {
-  
     //  recibe el valor del evento e
     setSearch(e.target.value);
 
@@ -25,25 +23,20 @@ const Home = () => {
     filtrar(e.target.value);
   };
 
-
   //  metodo que filtra los productos
   const filtrar = (search) => {
-  
     //  validamos que tenga informacion de busqueda
     if (search) {
-      
       //  ingresamos la consulta del prducto
       let valores = products.filter((product) =>
         product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
       );
 
-
       //  cargamos el valor obtenido
       setProducts(valores);
-    } 
+    }
     //  si esta vacio, se recarga todos los productos
     else {
-      
       //  consultamos todos los productos
       getProducts()
         .then((products) => {
@@ -60,19 +53,18 @@ const Home = () => {
       .then((products) => {
         setProducts(products);
         setLoading(false);
+
+        console.log(products)
       })
       .catch((err) => console.error(err));
   }, []);
 
-  
   //  metodo useEffect
   useEffect(() => {
     //  asigna el valor al localStorege
-    localStorage.setItem("productos", products);
-
+    localStorage.setItem("productos",JSON.stringify( products));
   }, [products]);
 
-  
   //  se regresa el valor
   return (
     <div className="flex-1 flex flex-col gap-4 p-4">

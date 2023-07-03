@@ -3,9 +3,11 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./provider/CartProvider";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
+
     <CartProvider>
       <BrowserRouter>
         <main className="min-h-screen flex flex-col">
@@ -13,10 +15,13 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Home />} />
             <Route path="/carrito" exact element={<Cart />} />
+            <Route path="/detalle/:productId/:produto_" exact element={<ProductDetail />} />
           </Routes>
         </main>
       </BrowserRouter>
     </CartProvider>
+
+
 
   );
 }

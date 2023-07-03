@@ -8,9 +8,7 @@ const NavBar = () => {
         <span>FakeStore</span>
       </Link>
       <Link to="/carrito">
-       
         <span>{<CountCart />}</span>
-
       </Link>
     </nav>
   );
