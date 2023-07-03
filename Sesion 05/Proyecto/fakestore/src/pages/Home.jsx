@@ -54,7 +54,7 @@ const Home = () => {
         setProducts(products);
         setLoading(false);
 
-        console.log(products)
+        //console.log(products)
       })
       .catch((err) => console.error(err));
   }, []);
@@ -62,7 +62,7 @@ const Home = () => {
   //  metodo useEffect
   useEffect(() => {
     //  asigna el valor al localStorege
-    localStorage.setItem("productos",JSON.stringify( products));
+    localStorage.setItem("productos", JSON.stringify(products));
   }, [products]);
 
   //  se regresa el valor

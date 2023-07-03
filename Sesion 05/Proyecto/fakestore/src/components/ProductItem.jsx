@@ -68,13 +68,10 @@ const ProductItem = ({ product }) => {
         <h2 className="font-bold">{product.title}</h2>
         <span>${product.price}</span>
 
-        <Link to={`/detalle/${product.id}/${product_}`}>
+        <Link to={`/detalle/${product.id}`}>
           <span className="w-full">
-            <button
-              className="bg-white hover:bg-gray-200 text-black rounded-md p-2 mt-2"
-            >
+            <button className="bg-white hover:bg-gray-200 text-black rounded-md p-2 mt-2">
               Ver detalle
-              
             </button>
           </span>
         </Link>
