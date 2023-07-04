@@ -1,11 +1,13 @@
 //  sección import
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCartContext } from "../provider/CartProvider";
 
 // funcion principal
 const ProductDetail = () => {
   //  declaracion de variables
   const { productId } = useParams();
+  const { dispatch } = useCartContext();
 
   //    se asigna el nombre de la variable a buscar en el localStorage
   var key = "productos";
@@ -13,13 +15,13 @@ const ProductDetail = () => {
   // se cargan los valores del localStorage
   const valores = JSON.parse(localStorage.getItem(key));
 
-  let producto_detalle_ = valores.find((product) => (product.id == productId));
+  let producto_detalle_ = valores.find((product) => product.id == productId);
 
   let producto_rating = producto_detalle_.rating;
 
-//   console.log(`id:  ${productId}`);
-//   console.log(producto_detalle_);
-//   console.log(producto_rating);
+  //   console.log(`id:  ${productId}`);
+  //   console.log(producto_detalle_);
+  //   console.log(producto_rating);
 
   //  regresa la estructura de la pagina
   return (
@@ -54,6 +56,9 @@ const ProductDetail = () => {
             <th scope="col" class="px-6 py-3">
               Count
             </th>
+            <th scope="col" class="px-6 py-3">
+              
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -65,7 +70,7 @@ const ProductDetail = () => {
               <img
                 src={producto_detalle_.image}
                 alt={producto_detalle_.title}
-                className="h-28 object-cover self-center"
+                className="h-50 object-cover self-center"
               />
             </th>
             <td class="px-6 py-4">
@@ -89,6 +94,18 @@ const ProductDetail = () => {
             </td>
             <td class="px-6 py-4">
               <label>{producto_rating.count}</label>
+            </td>
+
+            <td class="px-6 py-4">
+              <button
+                className="bg-black hover:bg-gray-800 text-white rounded-md p-2 mt-2"
+                onClick={() => {
+                  dispatch({ type: "ADD_TO_CART", payload: producto_detalle_ });
+                  alert("Producto añadido al carrito");
+                }}
+              >
+                Añadir al carrito
+              </button>
             </td>
           </tr>
         </tbody>
