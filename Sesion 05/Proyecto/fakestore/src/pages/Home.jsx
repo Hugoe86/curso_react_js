@@ -10,6 +10,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const { getProducts } = useAPI();
   const [search, setSearch] = useState("");
+  const [banderaBusqueda, setbanderaBusqueda] = useState(false);
 
   //  metodo para filtar el producto
   const searcher = (e) => {
@@ -32,6 +33,18 @@ const Home = () => {
         product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
       );
 
+
+      //console.log(valores);
+
+      //  validamos que contenga algo la busqueda
+      if(valores.length == 0){
+        setbanderaBusqueda(true);
+      }
+      else{
+        setbanderaBusqueda(false);
+      }
+
+
       //  cargamos el valor obtenido
       setProducts(valores);
     }
@@ -42,6 +55,7 @@ const Home = () => {
         .then((products) => {
           setProducts(products);
           setLoading(false);
+          setbanderaBusqueda(false);
         })
         .catch((err) => console.error(err));
     }
@@ -85,6 +99,7 @@ const Home = () => {
         />
       </div>
 
+      {banderaBusqueda && <p>Sin resultados del producto...</p>}
       {loading && <p>Cargando...</p>}
       {!loading && (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
