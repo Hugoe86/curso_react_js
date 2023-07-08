@@ -72,7 +72,7 @@ const Home = () => {
 
       <div>
         <label
-          for="txt_busqueda"
+          htmlFor ="txt_busqueda"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Busqueda

@@ -69,14 +69,9 @@ const ProductItem = ({ product }) => {
         <span>${product.price}</span>
 
         <Link to={`/detalle/${product.id}`}>
-          <a className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
-            {/* <span className="w-full">
-              <button className="bg-white hover:bg-gray-200 text-black rounded-md p-2 mt-2">
-                Ver detalle
-              </button>
-            </span> */}
+          <span className="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">
             Ver detalle
-          </a>
+          </span>
         </Link>
 
         {/* validamo que boton se mostrara, si es VERDADERO se mostrara el boton de agregar, si es FALSO mostrara boton de eliminar*/}
