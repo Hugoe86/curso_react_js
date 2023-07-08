@@ -77,7 +77,7 @@ const ProductItem = ({ product }) => {
         {/* validamo que boton se mostrara, si es VERDADERO se mostrara el boton de agregar, si es FALSO mostrara boton de eliminar*/}
         {showAdd ? (
           <button
-            className="bg-black hover:bg-gray-800 text-white rounded-md p-2 mt-2"
+            className="transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 bg-black  hover:bg-gray-800 duration-300  text-white rounded-md p-2 mt-2"
             onClick={() => {
               dispatch({ type: "ADD_TO_CART", payload: product });
               alert("Producto añadido al carrito");
@@ -87,7 +87,7 @@ const ProductItem = ({ product }) => {
           </button>
         ) : (
           <button
-            className="bg-red-500  hover:bg-red-800 text-white rounded-md p-2 mt-2"
+            className="transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 bg-red-500  hover:bg-red-800 duration-300 text-white rounded-md p-2 mt-2"
             onClick={() => {
               dispatch({ type: "REMOVE_FROM_CART", payload: product });
               alert("Producto eliminado del carrito");

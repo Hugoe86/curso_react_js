@@ -20,7 +20,9 @@ const Cart = () => {
             <CartItem key={index} product={product} />
           ))}
         </div>
-        <div className="font-bold text-3xl">TOTAL: ${formatNumbre(totalPrice)}</div>
+        <div className="text-cyan-600 font-bold text-3xl items-start">
+          TOTAL: ${formatNumbre(totalPrice)}
+        </div>
       </div>
     </div>
   );
